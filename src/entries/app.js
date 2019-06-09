@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import Home from "../pages/components/home";
 import Videos from "../pages/containers/videos";
+import Contact from "../pages/components/contact";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducer from "../reducers/index";
@@ -52,6 +53,7 @@ render(
         >
           <div>Videos</div>
         </Route> */}
+        <Route exact path="/contacto" component={Contact} />
       </React.Fragment>
     </Provider>
   </BrowserRouter>,
