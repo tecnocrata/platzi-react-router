@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
-import Home from "../pages/containers/home";
+import Home from "../pages/components/home";
+import Videos from "../pages/containers/videos";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducer from "../reducers/index";
@@ -44,13 +45,7 @@ render(
       <React.Fragment>
         <Header />
         <Route exact path="/" component={Home} />
-        <Route
-          exact
-          path="/videos"
-          component={() => {
-            return <div>Videos</div>;
-          }}
-        />
+        <Route exact path="/videos" component={Videos} />
         {/* <Route
           exact
           path="/videos"
