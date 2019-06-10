@@ -10,7 +10,7 @@ import { Map as map } from "immutable";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Header from "../pages/components/header";
 import NotFound from "../pages/components/NotFound";
 // function logger({ getState, dispatch}) {
@@ -56,6 +56,7 @@ render(
           <div>Videos</div>
         </Route> */}
           <Route exact path="/contacto" component={Contact} />
+          <Redirect from="/v" to="/videos" />
           <Route component={NotFound} />
         </Switch>
       </React.Fragment>

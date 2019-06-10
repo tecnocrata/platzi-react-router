@@ -20,6 +20,15 @@ class Header extends Component {
                 Videos
               </NavLink>
             </li>
+            {/* !!!!!MALA, MALISIMA PRACTICA, que el instructor de React improviso mientras no haya SSR !!!! */}
+            {/* -------------------------------------------------------------------------------------------- */}
+            <li>
+              <NavLink to="/v" activeClassName="is-selected">
+                Redirect
+              </NavLink>
+            </li>
+            {/* -------------------------------------------------------------------------------------------- */}
+            {/* !!!!!MALA, MALISIMA PRACTICA, que el instructor de React improviso mientras no haya SSR !!!! */}
             <li>
               <NavLink to="/contacto" activeClassName="is-selected">
                 Contacto
