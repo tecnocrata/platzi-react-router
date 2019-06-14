@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./header.css";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../images/logo.png";
+import { withRouter } from "react-router";
 
 class Header extends Component {
   render() {
@@ -39,11 +40,28 @@ class Header extends Component {
                 Perfil
               </NavLink>
             </li>
+            {/* !!!!! Solo para efectos de demostracion del withRoute !!!! */}
+            {/* !!!!! NO recomendable en un componente UI o puro !!!! */}
+            {/* -------------------------------------------------------------------------------------------- */}
+            <li>
+              <button
+                onClick={() => {
+                  this.props.history.goBack();
+                }}
+              >
+                Back 🔙
+              </button>
+            </li>
+            {/* -------------------------------------------------------------------------------------------- */}
+            {/* !!!!! Solo para efectos de demostracion del withRoute !!!! */}
+            {/* !!!!! NO recomendable en un componente UI o puro !!!! */}
           </ul>
         </nav>
       </header>
     );
   }
 }
-
-export default Header;
+//Aqui usamos withRouter porque deseamos tener acceso desde este componente
+//a las propiedades y metodos del history, location y match
+//desde un componente que no es usado desde el Route
+export default withRouter(Header);
