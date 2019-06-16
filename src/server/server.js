@@ -1,8 +1,11 @@
 //Creando una UWA = Universal Web App
 //Configurando BACKEND for FrontEnd
-var express = require("express");
+const express = require("express");
 
-var app = express();
+const uwa = require("../../dist/ssr/app");
+const ReactRouter = require("react-router");
+
+const app = express();
 
 app.get("*", (req, res) => {
   console.log(req.url);
