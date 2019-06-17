@@ -1,33 +1,56 @@
 //Creando una UWA = Universal Web App
 //Configurando BACKEND for FrontEnd
-const express = require("express");
+import express from "express";
+import React from "react";
+import App from "../../dist/ssr/app";
+//import App from "../entries/appUwa";
+//import App from "../entries/appTemp";
 
-const uwa = require("../../dist/ssr/app");
-const ReactRouter = require("react-router");
+import ReactRouter, { StaticRouter, BrowserRouter } from "react-router";
+import reactDOMServer from "react-dom/server";
 
 const app = express();
 
+//app.use(express.static("../../dist"));
+app.use(express.static("dist"));
+app.use("/images", express.static("images"));
+
 app.get("*", (req, res) => {
   console.log(req.url);
-  //res.write("Hello from backend");
+  let context = { name: "Enrique" };
+  const content = reactDOMServer.renderToString(
+    <StaticRouter location={req.url} context={context}>
+      <App />
+    </StaticRouter>
+  );
+
+  //   res.write("Hello from backend");
+  console.log(content);
+  //   res.write("------------");
+  //   res.write(content);
+  //   res.write("!!!!!!!!!");
   res.write(`<!DOCTYPE html>
-    <html lang="en">
+        <html lang="en">
 
-    <head>
-      <meta charset="UTF-8">
-      <title>Platzi Video</title>
-      <!-- <link rel="stylesheet" href="dist/css/home.7646f097e8e64cbf8f09.css"> -->
-    </head>
+        <head>
+          <meta charset="UTF-8">
+          <title>Platzi Video</title>
+          <!-- <link rel="stylesheet" href="dist/css/home.7646f097e8e64cbf8f09.css"> -->
+          <link rel="stylesheet" href="/css/app.css">
+          <!--link rel="stylesheet" href="/css/app.css"-->
+        </head>
 
-    <body>
-      <div id="home-container">Hello from Backend</div>
-      <div id="modal-container"></div>
-      <script src="http://localhost:9000/js/app.js"></script>
-      <!-- <script src="dist/js/home.7646f097e8e64cbf8f09.js"></script> -->
-    </body>
+        <body>
+          <div id="home-container">${content}</div>
+          <div id="modal-container"></div>
+          <script src="http://localhost:9000/js/app.js"></script>
+          <!-- <script src="dist/js/home.7646f097e8e64cbf8f09.js"></script> -->
+        </body>
 
-    </html>`);
+        </html>`);
   res.end();
 });
 
-app.listen(3000);
+app.listen(3001);
+
+console.log("App running at port 3001");
