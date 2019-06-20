@@ -13,6 +13,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Header from "../pages/components/header";
 import NotFound from "../pages/components/NotFound";
+import UniqueVideo from "../pages/containers/uniqueVideo";
 // function logger({ getState, dispatch}) {
 //   return (next) => {
 //     return (action) => {
@@ -52,6 +53,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/videos" component={Videos} />
+            <Route exact from="/videos/:id" component={UniqueVideo} />
             {/* <Route
           exact
           path="/videos"

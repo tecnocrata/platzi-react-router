@@ -37,14 +37,15 @@ app.get("*", (req, res) => {
           <title>Platzi Video</title>
           <!-- <link rel="stylesheet" href="dist/css/home.7646f097e8e64cbf8f09.css"> -->
           <link rel="stylesheet" href="/css/app.css">
-          <!--link rel="stylesheet" href="/css/app.css"-->
         </head>
 
         <body>
           <div id="home-container">${content}</div>
           <div id="modal-container"></div>
-          <script src="http://localhost:9000/js/app.js"></script>
-          <!-- <script src="dist/js/home.7646f097e8e64cbf8f09.js"></script> -->
+          <!-- ESTA LINEA ES IDEAL PARA MODO DE DESARROLLO -->
+          <!-- SI NO QUEREMOS ESTAR GENERANDO LA app.js CADA VEZ -->
+          <!-- script src="http://localhost:9000/js/app.js"></script -->
+          <script src="/js/app.js"></script>
         </body>
 
         </html>`);

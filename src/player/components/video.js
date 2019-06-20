@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import './video.css';
+import React, { Component } from "react";
+import "./video.css";
 
 class Video extends Component {
   togglePlay() {
     if (this.props.pause) {
-      this.video.play()
+      this.video.play();
     } else {
-      this.video.pause()
+      this.video.pause();
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -16,13 +16,13 @@ class Video extends Component {
   }
   setRef = element => {
     this.video = element;
-  }
+  };
   render() {
     const {
       handleLoadedMetadata,
       handleTimeUpdate,
       handleSeeking,
-      handleSeeked,
+      handleSeeked
     } = this.props;
 
     return (
@@ -37,7 +37,7 @@ class Video extends Component {
           onSeeked={handleSeeked}
         />
       </div>
-    )
+    );
   }
 }
 
